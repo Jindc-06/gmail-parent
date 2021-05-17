@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>common</module>
-        <module>model</module>
         <module>service</module>
+        <module>web</module>
         <module>service-client</module>
-        <module>service/service-product</module>
+        <module>model</module>
     </modules>
 
     <parent>
@@ -81,15 +81,14 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-
             <!--<dependency>
                 <groupId>net.oschina.zcx7878</groupId>
                 <artifactId>fastdfs-client-java</artifactId>
                 <version>${fastdfs.version}</version>
-            </dependency>-->
+            </dependency>
+-->
         </dependencies>
     </dependencyManagement>
-
     <repositories>
         <repository>
             <id>nexus-aliyun</id>
@@ -104,5 +103,7 @@
             </releases>
         </repository>
     </repositories>
+
+
 
 </project>

@@ -12,8 +12,7 @@
     <modules>
         <module>service-util</module>
         <module>common-util</module>
-        <module>common-util</module>
-        <module>service-util</module>
+        <module>web-util</module>
     </modules>
 
     <artifactId>common</artifactId>
@@ -42,29 +41,29 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
-        <!-- 服务调用feign -->
+        <!--&lt;!&ndash; 服务调用feign &ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <!-- 服务注册-->
+        &lt;!&ndash; 服务注册&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- 服务配置-->
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.cloud</groupId>-->
-        <!--<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
-        <!--</dependency>-->
+         服务配置
+        <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
 
-        <!-- 流量控制-->
+        &lt;!&ndash; 流量控制&ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 

@@ -8,7 +8,9 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <modules>
+        <module>service-product</module>
+    </modules>
     <artifactId>service</artifactId>
 
     <packaging>pom</packaging>

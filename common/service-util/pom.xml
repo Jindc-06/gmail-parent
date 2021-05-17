@@ -36,12 +36,12 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- redisson -->
+       <!-- &lt;!&ndash; redisson &ndash;&gt;
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>3.11.2</version>
-        </dependency>
+        </dependency>-->
 
         <!--mybatis-plus-->
         <dependency>
@@ -58,10 +58,10 @@
 
     </dependencies>
 
-    <build>
+    <!--<build>
         <defaultGoal>compile</defaultGoal>
         <finalName>service-base</finalName>
     </build>
-
+-->
 
 </project>
