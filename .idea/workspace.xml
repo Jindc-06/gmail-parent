@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0b607e6-0c77-4e88-ad11-d20c55104280" name="Default Changelist" comment="git">
+      <change afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gmall-parent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_oschina_zcx7878_fastdfs_client_java_1_27_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/smartfox_info.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/atguigu/gmall/common/util/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/atguigu/gmall/common/util/ResultCodeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/target/classes/com/atguigu/gmall/common/util/Result.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/target/classes/com/atguigu/gmall/common/util/ResultCodeEnum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/web-util/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/web-util/web-util.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/base/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseAttrInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseAttrValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseCategory1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseCategory2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseCategory3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseCategoryView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseSaleAttr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/BaseTrademark.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SkuAttrValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SkuImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SkuInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SkuSaleAttrValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SpuImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SpuInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SpuPoster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SpuSaleAttr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product/SpuSaleAttrValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/base/BaseEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseAttrInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseAttrValue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseCategory1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseCategory2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseCategory3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseCategoryView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseSaleAttr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/BaseTrademark.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SkuAttrValue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SkuImage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SkuInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SkuSaleAttrValue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SpuImage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SpuInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SpuPoster.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SpuSaleAttr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/target/classes/com/atguigu/gmall/model/product/SpuSaleAttrValue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-client/service-client.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/ServiceProductApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/AttrInfoApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/CategoryApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/SkuApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/SpuApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/TrademarkApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseAttrInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseAttrValueMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseCategory1Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseCategory2Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseCategory3Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseSaleAttrMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/BaseTrademarkMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SkuAttrValueMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SkuImageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SkuInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SkuSaleAttrValueMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SpuImageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SpuInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SpuSaleAttrMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SpuSaleAttrValueMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/AttrInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/SkuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/SpuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/TrademarkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/AttrInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/SkuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/SpuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/TrademarkServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/util/FileUploadUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/resources/tracker.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/META-INF/service-product.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/ServiceProductApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/AttrInfoApiController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/CategoryApiController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/SkuApiController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/SpuApiController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/TrademarkApiController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseAttrInfoMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseAttrValueMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseCategory1Mapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseCategory2Mapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseCategory3Mapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseSaleAttrMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/BaseTrademarkMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SkuAttrValueMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SkuImageMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SkuInfoMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SkuSaleAttrValueMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SpuImageMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SpuInfoMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SpuSaleAttrMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SpuSaleAttrValueMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/AttrInfoService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/CategoryService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/SkuService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/SpuService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/TrademarkService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/AttrInfoServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/SkuServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/SpuServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/TrademarkServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/util/FileUploadUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/tracker.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/web.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\code\gmail-parent\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\software\maven-gamil\repository" />
+        <option name="mavenHome" value="D:/software/maven-gamil/apache-maven-3.5.0" />
+        <option name="userSettingsFile" value="D:\software\maven-gamil\apache-maven-3.5.0\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sWVJPddwSNelxDYse0L7mbirOV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\gmall-parent\model\src\main\java\com\atguigu\gmall\model\product" />
+      <recent name="D:\code\gmail-parent" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.atguigu.gmall.product.mapper" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.atguigu.gmall.product.service.mapper" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ServiceProductApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="service-product" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.atguigu.gmall.product.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.gmall.product.ServiceProductApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0b607e6-0c77-4e88-ad11-d20c55104280" name="Default Changelist" comment="" />
+      <created>1620988259559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620988259559</updated>
+      <workItem from="1620988263525" duration="189000" />
+      <workItem from="1620988477292" duration="1238000" />
+      <workItem from="1620989726766" duration="1072000" />
+      <workItem from="1620990841710" duration="3717000" />
+      <workItem from="1620996970588" duration="1009000" />
+      <workItem from="1621042081664" duration="773000" />
+      <workItem from="1621050185638" duration="559000" />
+      <workItem from="1621057736476" duration="298000" />
+      <workItem from="1621058123648" duration="658000" />
+      <workItem from="1621059274515" duration="751000" />
+      <workItem from="1621060043848" duration="903000" />
+      <workItem from="1621061175534" duration="2658000" />
+      <workItem from="1621212152437" duration="596000" />
+      <workItem from="1621212771709" duration="506000" />
+      <workItem from="1621220921994" duration="13530000" />
+      <workItem from="1621298461479" duration="14902000" />
+    </task>
+    <task id="LOCAL-00001" summary="基本架构文件夹">
+      <created>1620992180829</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620992180829</updated>
+    </task>
+    <task id="LOCAL-00002" summary="git">
+      <created>1620997145256</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620997145257</updated>
+    </task>
+    <task id="LOCAL-00003" summary="git">
+      <created>1621258858986</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621258858986</updated>
+    </task>
+    <task id="LOCAL-00004" summary="git">
+      <created>1621339012153</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621339012153</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="基本架构文件夹" />
+    <MESSAGE value="git" />
+    <option name="LAST_COMMIT_MESSAGE" value="git" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="71" key="#Inspections" timestamp="1621247486304">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1621247486304" />
+    <state x="361" y="71" key="#Notifications" timestamp="1620988678251">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1620988678251" />
+    <state x="361" y="71" key="#Project_Structure" timestamp="1621061757894">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1621061757894" />
+    <state x="223" y="68" width="1164" height="688" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621213062445">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="68" width="1164" height="688" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1621213062445" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1621338067229">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1621338067229" />
+    <state x="320" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1621248811121">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="320" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1621248811121" />
+    <state x="211" y="0" width="855" height="824" key="CommitChangelistDialog2" timestamp="1621339196151">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="211" y="0" width="855" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621339196151" />
+    <state x="549" y="103" key="FileChooserDialogImpl" timestamp="1621213018703">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="103" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621213018703" />
+    <state width="1493" height="355" key="GridCell.Tab.0.bottom" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state width="1493" height="355" key="GridCell.Tab.0.center" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state width="1493" height="355" key="GridCell.Tab.0.left" timestamp="1621338902181">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621338902181" />
+    <state width="1493" height="355" key="GridCell.Tab.0.right" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state width="1493" height="355" key="GridCell.Tab.1.bottom" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state width="1493" height="355" key="GridCell.Tab.1.center" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state width="1493" height="355" key="GridCell.Tab.1.left" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state width="1493" height="355" key="GridCell.Tab.1.right" timestamp="1621338902182">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="355" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1621338902182" />
+    <state x="624" y="180" key="JPASupport:com.ifengxue.plugin.gui.DatabaseSettingsDialog" timestamp="1621060460810">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="624" y="180" key="JPASupport:com.ifengxue.plugin.gui.DatabaseSettingsDialog/0.0.1536.824@0.0.1536.824" timestamp="1621060460810" />
+    <state x="408" y="110" key="NewModule_or_Project.wizard" timestamp="1620988510528">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="408" y="110" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1620988510528" />
+    <state x="270" y="0" key="SettingsEditor" timestamp="1621334236252">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621334236252" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1621339034175">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621339034175" />
+    <state x="178" y="108" key="new project wizard" timestamp="1621059605398">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="178" y="108" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1621059605398" />
+    <state x="445" y="204" width="715" height="305" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1621334145773">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="445" y="204" width="715" height="305" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1536.824@0.0.1536.824" timestamp="1621334145773" />
+    <state x="511" y="40" key="refactoring.ChangeSignatureDialog" timestamp="1621318812544">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="511" y="40" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1621318812544" />
+  </component>
+</project>
