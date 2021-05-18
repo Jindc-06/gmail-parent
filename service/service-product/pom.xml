@@ -15,12 +15,14 @@
     <name>service-product</name>
     <description>service-product</description>
 
-    <!--<dependencies>
+    <dependencies>
         <dependency>
             <groupId>net.oschina.zcx7878</groupId>
             <artifactId>fastdfs-client-java</artifactId>
         </dependency>
-    </dependencies>-->
+    </dependencies>
+
+
 
 
 </project>
