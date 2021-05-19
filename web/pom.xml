@@ -7,29 +7,25 @@
         <groupId>com.atguigu.gmall</groupId>
         <version>1.0</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>service-product</module>
-        <module>service-item</module>
+        <module>web-all</module>
     </modules>
-    <artifactId>service</artifactId>
-
+    <artifactId>web</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
 
     <dependencies>
-        <dependency>
-            <groupId>com.atguigu.gmall</groupId>
-            <artifactId>service-util</artifactId>
-            <version>1.0</version>
-        </dependency>
+    <dependency>
+        <artifactId>web-util</artifactId>
+        <groupId>com.atguigu.gmall</groupId>
+        <version>1.0</version>
+    </dependency>
 
-        <dependency>
-            <groupId>com.atguigu.gmall</groupId>
-            <artifactId>model</artifactId>
-            <version>1.0</version>
-        </dependency>
-
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
     </dependencies>
-
 </project>
