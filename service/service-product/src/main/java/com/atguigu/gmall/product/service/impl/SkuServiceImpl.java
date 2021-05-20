@@ -95,6 +95,7 @@ public class SkuServiceImpl implements SkuService {
 
     @Override
     public SkuInfo getSkuById(Long skuId) {
+        //判断商品是否上架
         SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
         return skuInfo;
     }
