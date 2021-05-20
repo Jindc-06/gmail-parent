@@ -41,26 +41,26 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
-        <!--&lt;!&ndash; 服务调用feign &ndash;&gt;
-        <dependency>
+        <!-- 服务调用feign -->
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
+        </dependency>-->
 
-        &lt;!&ndash; 服务注册&ndash;&gt;
+        <!--服务注册-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-         服务配置
-        <dependency>
+         <!--服务配置-->
+        <!--<dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+        </dependency>-->
 
-        &lt;!&ndash; 流量控制&ndash;&gt;
-        <dependency>
+        <!--流量控制-->
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>-->

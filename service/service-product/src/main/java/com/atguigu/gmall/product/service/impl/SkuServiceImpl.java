@@ -9,11 +9,13 @@ import com.atguigu.gmall.product.mapper.SkuImageMapper;
 import com.atguigu.gmall.product.mapper.SkuInfoMapper;
 import com.atguigu.gmall.product.mapper.SkuSaleAttrValueMapper;
 import com.atguigu.gmall.product.service.SkuService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -89,5 +91,25 @@ public class SkuServiceImpl implements SkuService {
         skuInfo.setId(skuId);
         skuInfo.setIsSale(0);
         skuInfoMapper.updateById(skuInfo);
+    }
+
+    @Override
+    public SkuInfo getSkuById(Long skuId) {
+        SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
+        return skuInfo;
+    }
+
+    @Override
+    public List<SkuImage> getSkuImageBySkuId(Long skuId) {
+        QueryWrapper<SkuImage> wrapper = new QueryWrapper<>();
+        wrapper.eq("sku_id",skuId);
+        List<SkuImage> skuImageList = skuImageMapper.selectList(wrapper);
+        return skuImageList;
+    }
+
+    @Override
+    public BigDecimal getSkuPriceById(Long skuId) {
+        SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
+        return skuInfo.getPrice();
     }
 }

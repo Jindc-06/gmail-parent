@@ -10,8 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>web-all</artifactId>
-    <packaging>jar</packaging>
-
     <dependencies>
         <dependency>
             <groupId>com.atguigu.gmall</groupId>
@@ -19,17 +17,6 @@
             <version>1.0</version>
         </dependency>
     </dependencies>
-
-
-    <build>
-        <finalName>web-all</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 
 </project>

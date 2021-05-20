@@ -103,4 +103,10 @@ public class SpuServiceImpl implements SpuService {
         }
         return spuSaleAttrList;
     }
+
+    @Override
+    public List<SpuSaleAttr> getSpuSaleAttrListCheckBySku(Long spuId, Long skuId) {
+        List<SpuSaleAttr> spuSaleAttrList = spuSaleAttrMapper.selectSpuSaleAttrListCheckBySku(spuId,skuId);
+        return spuSaleAttrList;
+    }
 }

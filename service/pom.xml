@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>service-product</module>
+        <module>service-item</module>
     </modules>
     <artifactId>service</artifactId>
 
