@@ -1,8 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0b607e6-0c77-4e88-ad11-d20c55104280" name="Default Changelist" comment="">
+    <list default="true" id="f0b607e6-0c77-4e88-ad11-d20c55104280" name="Default Changelist" comment="git">
+      <change afterPath="$PROJECT_DIR$/.idea/GrepConsole.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__de_ruedigermoeller_fst_2_57.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_dns_4_1_43_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_dns_4_1_43_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_reactivex_rxjava2_rxjava_2_2_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_cache_cache_api_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jodd_jodd_bean_5_0_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jodd_jodd_core_5_0_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_redisson_redisson_3_11_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/src/main/java/com/atguigu/gmall/common/constant/RedisConst.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/common-util/target/classes/com/atguigu/gmall/common/constant/RedisConst.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/src/main/java/com/atguigu/gmall/aop/GmallCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/src/main/java/com/atguigu/gmall/aop/GmallCacheAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/src/main/java/com/atguigu/gmall/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/target/classes/com/atguigu/gmall/aop/GmallCache.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/target/classes/com/atguigu/gmall/aop/GmallCacheAspect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/target/classes/com/atguigu/gmall/config/RedisConfig$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/service-util/target/classes/com/atguigu/gmall/config/RedisConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/src/main/java/com/atguigu/gmall/item/config/ThreadPoolConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/config/ThreadPoolConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/src/main/resources/mapper/SkuSaleAttrValueMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/service-product/target/classes/mapper/SkuSaleAttrValueMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/service-util/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/service-util/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/service-util/service-util.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/service-util/service-util.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-client/service-product-client/src/main/java/com/atguigu/gmall/product/client/ProductFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-client/service-product-client/src/main/java/com/atguigu/gmall/product/client/ProductFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-client/service-product-client/target/classes/com/atguigu/gmall/product/client/ProductFeignClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-client/service-product-client/target/classes/com/atguigu/gmall/product/client/ProductFeignClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-item/service-item.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-item/service-item.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-item/src/main/java/com/atguigu/gmall/item/service/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-item/src/main/java/com/atguigu/gmall/item/service/impl/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-item/target/classes/com/atguigu/gmall/item/service/impl/ItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/service-product.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/service-product.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/ProductApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/comtroller/ProductApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SkuSaleAttrValueMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/mapper/SkuSaleAttrValueMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/SkuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/SkuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/SpuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/SpuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/SkuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/SkuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/SpuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/java/com/atguigu/gmall/product/service/impl/SpuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/ProductApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/comtroller/ProductApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SkuSaleAttrValueMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/mapper/SkuSaleAttrValueMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/SkuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/SkuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/CategoryServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/SkuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/service-product/target/classes/com/atguigu/gmall/product/service/impl/SkuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service/service.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +89,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -87,7 +141,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/model/src/main/java/com/atguigu/gmall/model/product" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/common/service-util/src/main/java/com/atguigu/gmall/config" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -97,18 +151,21 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.atguigu.gmall.product.service.mapper" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\gmall-parent\common\service-util\src\main\java\com\atguigu\gmall\config" />
+      <recent name="D:\code\gmall-parent\common\common-util\src\main\java\com\atguigu\gmall\common" />
+      <recent name="D:\code\gmall-parent\service\service-product\src\main\resources\mapper" />
+      <recent name="D:\code\gmall-parent\model\src\main\java\com\atguigu\gmall\model\product" />
+      <recent name="D:\code\gmail-parent" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.atguigu.gmall.product.mapper" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\code\gmall-parent\model\src\main\java\com\atguigu\gmall\model\product" />
-      <recent name="D:\code\gmail-parent" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.atguigu.gmall.product.service.mapper" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.ServiceProductApplication">
@@ -181,7 +238,14 @@
       <workItem from="1621474596925" duration="329000" />
       <workItem from="1621475948810" duration="208000" />
       <workItem from="1621476168920" duration="1909000" />
-      <workItem from="1621478165398" duration="3028000" />
+      <workItem from="1621478165398" duration="3471000" />
+      <workItem from="1621499823181" duration="72000" />
+      <workItem from="1621499907192" duration="190000" />
+      <workItem from="1621500378432" duration="1619000" />
+      <workItem from="1621558581089" duration="15128000" />
+      <workItem from="1621666208521" duration="710000" />
+      <workItem from="1621817741273" duration="733000" />
+      <workItem from="1621839065919" duration="12306000" />
     </task>
     <task id="LOCAL-00001" summary="基本架构文件夹">
       <created>1620992180829</created>
@@ -218,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621481641742</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="git">
+      <created>1621482317982</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621482317982</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,18 +357,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="68" width="1164" height="688" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1621213062445" />
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1621477624324">
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1621856408270">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1621477624324" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1621856408270" />
+    <state x="476" y="271" width="584" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1621482427764">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="476" y="271" width="584" height="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1621482427764" />
     <state x="320" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1621248811121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="320" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1621248811121" />
-    <state x="211" y="0" width="855" height="824" key="CommitChangelistDialog2" timestamp="1621481641145">
+    <state x="211" y="0" width="855" height="824" key="CommitChangelistDialog2" timestamp="1621862587422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="211" y="0" width="855" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621481641145" />
+    <state x="211" y="0" width="855" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621862587422" />
     <state x="147" y="71" key="DiffContextDialog" timestamp="1621481761644">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -306,38 +381,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="103" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621213018703" />
-    <state width="1493" height="342" key="GridCell.Tab.0.bottom" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.0.bottom" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.0.center" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.0.center" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.0.left" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.0.left" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.0.right" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.0.right" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.1.bottom" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.1.bottom" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.1.center" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.1.center" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.1.left" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.1.left" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
-    <state width="1493" height="342" key="GridCell.Tab.1.right" timestamp="1621482306265">
+    <state width="1493" height="480" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.1.right" timestamp="1621862355786">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="342" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1621482306265" />
+    <state width="1493" height="480" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.2.bottom" timestamp="1621862355787">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="480" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621862355787" />
+    <state width="1493" height="480" key="GridCell.Tab.2.center" timestamp="1621862355786">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="480" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.2.left" timestamp="1621862355786">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="480" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
+    <state width="1493" height="480" key="GridCell.Tab.2.right" timestamp="1621862355786">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="480" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1621862355786" />
     <state x="624" y="180" key="JPASupport:com.ifengxue.plugin.gui.DatabaseSettingsDialog" timestamp="1621060460810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -346,18 +437,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="408" y="110" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1620988510528" />
-    <state x="588" y="135" key="RollbackChangesDialog" timestamp="1621482024769">
+    <state x="588" y="135" key="RollbackChangesDialog" timestamp="1621862550655">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="588" y="135" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1621482024769" />
-    <state x="270" y="0" key="SettingsEditor" timestamp="1621478069942">
+    <state x="588" y="135" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1621862550655" />
+    <state x="270" y="0" key="SettingsEditor" timestamp="1621500078343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621478069942" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1621481993299">
+    <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621500078343" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1621862557204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621481993299" />
+    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621862557204" />
+    <state x="321" y="149" width="894" height="604" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1621862265954">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="321" y="149" width="894" height="604" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1621862265954" />
     <state x="555" y="204" key="git4idea.merge.GitMergeDialog" timestamp="1621431716143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -374,5 +469,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="511" y="40" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1621318812544" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1621578250231">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1621578250231" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((SkuInfo)result).skuDesc" language="JAVA" custom="com.atguigu.gmall.model.product.SkuInfo" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

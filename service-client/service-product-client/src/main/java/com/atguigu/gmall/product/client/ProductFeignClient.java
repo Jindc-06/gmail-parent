@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Date 2021/5/19 14:23
@@ -38,4 +39,7 @@ public interface ProductFeignClient {
     @RequestMapping("api/product/getSpuSaleAttrListCheckBySku/{spuId}/{skuId}")
     List<SpuSaleAttr> getSpuSaleAttrListCheckBySku(@PathVariable("spuId")Long spuId,
                                                    @PathVariable("skuId")Long skuId);
+    //切换点击销售属性对应得list ,dao层查询返回一个集合
+    @RequestMapping("api/product/getSaleAttrValuesBySku/{spuId}")
+    List<Map<String, Object>> getSaleAttrValuesBySku(@PathVariable("spuId")Long spuId);
 }

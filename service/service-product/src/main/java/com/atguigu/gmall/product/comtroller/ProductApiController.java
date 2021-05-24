@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Date 2021/5/19 14:40
@@ -66,5 +67,13 @@ public class ProductApiController {
 
         List<SpuSaleAttr> spuSaleAttrList = spuService.getSpuSaleAttrListCheckBySku(spuId,skuId);
         return spuSaleAttrList;
+    }
+
+    //切换点击销售属性对应得list ,dao层查询返回一个集合
+    @RequestMapping("getSaleAttrValuesBySku/{spuId}")
+    List<Map<String, Object>> getSaleAttrValuesBySku(@PathVariable("spuId")Long spuId){
+
+        List<Map<String, Object>> valuesSkuBySpuList = skuService.getSaleAttrValuesBySku(spuId);
+        return valuesSkuBySpuList;
     }
 }

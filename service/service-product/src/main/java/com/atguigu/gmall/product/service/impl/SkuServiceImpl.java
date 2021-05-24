@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.service.impl;
 
+import com.atguigu.gmall.aop.GmallCache;
 import com.atguigu.gmall.model.product.SkuAttrValue;
 import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
@@ -13,10 +14,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Date 2021/5/18 15:09
@@ -33,6 +36,8 @@ public class SkuServiceImpl implements SkuService {
     private SkuSaleAttrValueMapper skuSaleAttrValueMapper;
     @Autowired
     private SkuImageMapper skuImageMapper;
+    @Autowired
+    RedisTemplate redisTemplate;
 
     @Override
     public void saveSkuInfo(SkuInfo skuInfo) {
@@ -92,14 +97,17 @@ public class SkuServiceImpl implements SkuService {
         skuInfo.setIsSale(0);
         skuInfoMapper.updateById(skuInfo);
     }
-
+    @GmallCache
     @Override
     public SkuInfo getSkuById(Long skuId) {
-        //判断商品是否上架
-        SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
+
+        SkuInfo skuInfo = null;
+        //查询mysql数据库
+        skuInfo = skuInfoMapper.selectById(skuId);
+
         return skuInfo;
     }
-
+    @GmallCache
     @Override
     public List<SkuImage> getSkuImageBySkuId(Long skuId) {
         QueryWrapper<SkuImage> wrapper = new QueryWrapper<>();
@@ -107,10 +115,16 @@ public class SkuServiceImpl implements SkuService {
         List<SkuImage> skuImageList = skuImageMapper.selectList(wrapper);
         return skuImageList;
     }
-
+    @GmallCache
     @Override
     public BigDecimal getSkuPriceById(Long skuId) {
         SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
         return skuInfo.getPrice();
+    }
+    @GmallCache
+    @Override
+    public List<Map<String, Object>> getSaleAttrValuesBySku(Long spuId) {
+        List<Map<String, Object>> valuesSkuBySpuList = skuSaleAttrValueMapper.selectSaleAttrValuesBySku(spuId);
+        return valuesSkuBySpuList;
     }
 }

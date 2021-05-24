@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Date 2021/5/18 15:08
@@ -25,4 +26,6 @@ public interface SkuService {
     List<SkuImage> getSkuImageBySkuId(Long skuId);
 
     BigDecimal getSkuPriceById(Long skuId);
+
+    List<Map<String, Object>> getSaleAttrValuesBySku(Long spuId);
 }

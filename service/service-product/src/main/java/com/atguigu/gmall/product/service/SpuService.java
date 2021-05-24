@@ -25,4 +25,5 @@ public interface SpuService {
     List<SpuSaleAttr> spuSaleAttrList(Long spuId);
 
     List<SpuSaleAttr> getSpuSaleAttrListCheckBySku(Long spuId, Long skuId);
+
 }

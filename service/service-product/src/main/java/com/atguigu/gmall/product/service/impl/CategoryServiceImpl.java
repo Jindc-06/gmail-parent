@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.service.impl;
 
+import com.atguigu.gmall.aop.GmallCache;
 import com.atguigu.gmall.model.product.BaseCategory1;
 import com.atguigu.gmall.model.product.BaseCategory2;
 import com.atguigu.gmall.model.product.BaseCategory3;
@@ -55,7 +56,7 @@ class CategoryServiceImpl implements CategoryService {
         List<BaseCategory3> baseCategory3List = baseCategory3Mapper.selectList(wrapper);
         return baseCategory3List;
     }
-
+    @GmallCache
     @Override
     public BaseCategoryView getCategoryViewByC3Id(Long category3Id) {
         QueryWrapper<BaseCategoryView> wrapper = new QueryWrapper<>();

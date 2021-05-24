@@ -109,4 +109,6 @@ public class SpuServiceImpl implements SpuService {
         List<SpuSaleAttr> spuSaleAttrList = spuSaleAttrMapper.selectSpuSaleAttrListCheckBySku(spuId,skuId);
         return spuSaleAttrList;
     }
+
+
 }
