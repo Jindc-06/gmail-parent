@@ -42,4 +42,8 @@ public interface ProductFeignClient {
     //切换点击销售属性对应得list ,dao层查询返回一个集合
     @RequestMapping("api/product/getSaleAttrValuesBySku/{spuId}")
     List<Map<String, Object>> getSaleAttrValuesBySku(@PathVariable("spuId")Long spuId);
+
+    //首页三级分类属性列表
+    @RequestMapping("api/product/getCategoryToIndex")
+    List<BaseCategoryView> getCategoryToIndex();
 }

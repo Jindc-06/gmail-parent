@@ -64,4 +64,10 @@ class CategoryServiceImpl implements CategoryService {
         BaseCategoryView categoryView = baseCategoryViewMapper.selectOne(wrapper);
         return categoryView;
     }
+
+    @Override
+    public List<BaseCategoryView> getCategoryToIndex() {
+        List<BaseCategoryView> categoryViews = baseCategoryViewMapper.selectList(null);
+        return categoryViews;
+    }
 }

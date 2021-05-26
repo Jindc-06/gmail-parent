@@ -76,4 +76,10 @@ public class ProductApiController {
         List<Map<String, Object>> valuesSkuBySpuList = skuService.getSaleAttrValuesBySku(spuId);
         return valuesSkuBySpuList;
     }
+    //首页三级分类属性列表
+    @RequestMapping("getCategoryToIndex")
+    List<BaseCategoryView> getCategoryToIndex(){
+        List<BaseCategoryView> categoryViews = categoryService.getCategoryToIndex();
+        return categoryViews;
+    }
 }

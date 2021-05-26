@@ -20,4 +20,6 @@ public interface CategoryService {
     List<BaseCategory3> getCategory3(Long category2Id);
 
     BaseCategoryView getCategoryViewByC3Id(Long category3Id);
+
+    List<BaseCategoryView> getCategoryToIndex();
 }
