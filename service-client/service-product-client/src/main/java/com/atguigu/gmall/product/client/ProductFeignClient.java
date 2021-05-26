@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.client;
 
+import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.product.BaseCategoryView;
 import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
@@ -46,4 +47,7 @@ public interface ProductFeignClient {
     //首页三级分类属性列表
     @RequestMapping("api/product/getCategoryToIndex")
     List<BaseCategoryView> getCategoryToIndex();
+    //商品上架
+    @RequestMapping("api/product/getGoodsBySkuId/{skuId}")
+    Goods getGoodsBySkuId(@PathVariable("skuId")Long skuId);
 }

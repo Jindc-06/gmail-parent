@@ -10,4 +10,8 @@ import java.util.List;
  **/
 public interface SearchService {
     List<JSONObject> getCategoryToIndex();
+
+    void onSale(Long skuId);
+
+    void cancelSale(Long skuId);
 }

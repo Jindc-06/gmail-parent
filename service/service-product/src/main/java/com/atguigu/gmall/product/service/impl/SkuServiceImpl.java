@@ -1,6 +1,7 @@
 package com.atguigu.gmall.product.service.impl;
 
 import com.atguigu.gmall.aop.GmallCache;
+import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.product.SkuAttrValue;
 import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
@@ -10,6 +11,7 @@ import com.atguigu.gmall.product.mapper.SkuImageMapper;
 import com.atguigu.gmall.product.mapper.SkuInfoMapper;
 import com.atguigu.gmall.product.mapper.SkuSaleAttrValueMapper;
 import com.atguigu.gmall.product.service.SkuService;
+import com.atguigu.gmall.search.SearchFeignClient;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -38,6 +40,8 @@ public class SkuServiceImpl implements SkuService {
     private SkuImageMapper skuImageMapper;
     @Autowired
     RedisTemplate redisTemplate;
+    @Autowired
+    private SearchFeignClient searchFeignClient;
 
     @Override
     public void saveSkuInfo(SkuInfo skuInfo) {
@@ -88,6 +92,8 @@ public class SkuServiceImpl implements SkuService {
         skuInfo.setId(skuId);
         skuInfo.setIsSale(1);
         skuInfoMapper.updateById(skuInfo);
+        //同步搜索引擎,上架商品
+        searchFeignClient.onSale(skuId);
     }
 
     @Override
@@ -96,6 +102,9 @@ public class SkuServiceImpl implements SkuService {
         skuInfo.setId(skuId);
         skuInfo.setIsSale(0);
         skuInfoMapper.updateById(skuInfo);
+        //同步搜索引擎,下架商品,删除
+        searchFeignClient.cancelSale(skuId);
+
     }
     @GmallCache
     @Override
@@ -126,5 +135,12 @@ public class SkuServiceImpl implements SkuService {
     public List<Map<String, Object>> getSaleAttrValuesBySku(Long spuId) {
         List<Map<String, Object>> valuesSkuBySpuList = skuSaleAttrValueMapper.selectSaleAttrValuesBySku(spuId);
         return valuesSkuBySpuList;
+    }
+
+    @Override
+    public Goods getGoodsBySkuId(Long skuId) {
+
+        Goods goods = skuInfoMapper.selectGoodsBySkuId(skuId);
+        return goods;
     }
 }

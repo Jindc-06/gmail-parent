@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.comtroller;
 
+import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.product.BaseCategoryView;
 import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
@@ -82,4 +83,11 @@ public class ProductApiController {
         List<BaseCategoryView> categoryViews = categoryService.getCategoryToIndex();
         return categoryViews;
     }
+    //商品上架
+    @RequestMapping("getGoodsBySkuId/{skuId}")
+    Goods getGoodsBySkuId(@PathVariable("skuId")Long skuId){
+        Goods goods = skuService.getGoodsBySkuId(skuId);
+        return goods;
+    }
+
 }

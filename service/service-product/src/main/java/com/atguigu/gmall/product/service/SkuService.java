@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.service;
 
+import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -28,4 +29,6 @@ public interface SkuService {
     BigDecimal getSkuPriceById(Long skuId);
 
     List<Map<String, Object>> getSaleAttrValuesBySku(Long spuId);
+
+    Goods getGoodsBySkuId(Long skuId);
 }

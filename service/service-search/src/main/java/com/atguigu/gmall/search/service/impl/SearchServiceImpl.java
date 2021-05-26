@@ -1,13 +1,16 @@
 package com.atguigu.gmall.search.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.product.BaseCategoryView;
 import com.atguigu.gmall.product.client.ProductFeignClient;
+import com.atguigu.gmall.search.repository.GoodsRepository;
 import com.atguigu.gmall.search.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,6 +24,12 @@ public class SearchServiceImpl implements SearchService {
 
     @Autowired
     private ProductFeignClient productFeignClient;
+
+//    @Autowired
+//    ElasticsearchRestTemplate restTemplate;
+
+    @Autowired
+    GoodsRepository goodsRepository;
 
     @Override
     public List<JSONObject> getCategoryToIndex() {
@@ -74,5 +83,22 @@ public class SearchServiceImpl implements SearchService {
             c1JSONObjectList.add(c1JsonObject);
         }
         return c1JSONObjectList;
+    }
+
+    @Override
+    public void onSale(Long skuId) {
+        Goods goods = null;
+        //从数据库中查询,存入es中
+        goods = productFeignClient.getGoodsBySkuId(skuId);
+        goods.setCreateTime(new Date());
+        goodsRepository.save(goods);
+    }
+
+    @Override
+    public void cancelSale(Long skuId) {
+        //下架删除
+        Goods goods = new Goods();
+        goods.setId(skuId);
+        goodsRepository.delete(goods);
     }
 }
