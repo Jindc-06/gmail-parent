@@ -87,9 +87,9 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public void onSale(Long skuId) {
-        Goods goods = null;
+
         //从数据库中查询,存入es中
-        goods = productFeignClient.getGoodsBySkuId(skuId);
+        Goods goods = productFeignClient.getGoodsBySkuId(skuId);
         goods.setCreateTime(new Date());
         goodsRepository.save(goods);
     }
