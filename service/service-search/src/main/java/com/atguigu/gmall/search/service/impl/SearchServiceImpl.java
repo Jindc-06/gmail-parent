@@ -1,14 +1,31 @@
 package com.atguigu.gmall.search.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.atguigu.gmall.model.list.Goods;
+import com.atguigu.gmall.model.list.*;
 import com.atguigu.gmall.model.product.BaseCategoryView;
 import com.atguigu.gmall.product.client.ProductFeignClient;
 import com.atguigu.gmall.search.repository.GoodsRepository;
 import com.atguigu.gmall.search.service.SearchService;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.MatchQueryBuilder;
+import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.Aggregations;
+import org.elasticsearch.search.aggregations.bucket.nested.ParsedNested;
+import org.elasticsearch.search.aggregations.bucket.terms.ParsedLongTerms;
+import org.elasticsearch.search.aggregations.bucket.terms.ParsedStringTerms;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,12 +41,12 @@ public class SearchServiceImpl implements SearchService {
 
     @Autowired
     private ProductFeignClient productFeignClient;
-
 //    @Autowired
 //    ElasticsearchRestTemplate restTemplate;
-
     @Autowired
     GoodsRepository goodsRepository;
+    @Autowired
+    RestHighLevelClient restHighLevelClient;
 
     @Override
     public List<JSONObject> getCategoryToIndex() {
@@ -100,5 +117,162 @@ public class SearchServiceImpl implements SearchService {
         Goods goods = new Goods();
         goods.setId(skuId);
         goodsRepository.delete(goods);
+    }
+
+    @Override
+    public SearchResponseVo list(SearchParam searchParam) {
+        //封装查询语句
+        SearchRequest searchRequest = getSearchRequest(searchParam);
+
+        SearchResponse searchResponse =null;
+        try {
+            //执行检索
+            searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //解析和封装返回结果
+        SearchResponseVo searchResponseVo = getSearchResponseVo(searchResponse);
+        return searchResponseVo;
+    }
+
+    @Override
+    public void hotScore(Long skuId) {
+
+    }
+
+    //es查询语句封装
+    SearchRequest getSearchRequest(SearchParam searchParam){
+        SearchRequest searchRequest = new SearchRequest();
+        //搜索范围
+        searchRequest.indices("goods");//搜索索引范围
+        searchRequest.types("info");//搜索表
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        //es默认搜索10条数据
+        searchSourceBuilder.from(0);//从第几页开始
+        searchSourceBuilder.size(20);//搜索20条数据
+
+        //检索参数(category3Id,keyword不能同时为null)
+        Long category3Id = searchParam.getCategory3Id();
+        String keyword = searchParam.getKeyword();
+
+        //复合搜索下的dsl语句封装
+        BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
+        if(!StringUtils.isEmpty(category3Id)){
+            //参数三级分类id
+            TermQueryBuilder termQueryBuilder = new TermQueryBuilder("category3Id",category3Id);
+            boolQueryBuilder.filter(termQueryBuilder);
+        }
+        if(!StringUtils.isEmpty(keyword)){
+            //关键字搜索
+            MatchQueryBuilder matchQueryBuilder = new MatchQueryBuilder("title",keyword);
+            boolQueryBuilder.must(matchQueryBuilder);
+        }
+        //具体的搜索需要的条件 http
+        searchSourceBuilder.query(boolQueryBuilder);
+
+        //商品商标聚合查询(通过tmId聚合查询只查询,连接tmName和tmLogoUrl作为子聚合查询)
+        searchSourceBuilder.aggregation(AggregationBuilders.terms("tmIdAgg").field("tmId")
+                            .subAggregation(AggregationBuilders.terms("tmNameAgg").field("tmName"))//terms别名
+                            .subAggregation(AggregationBuilders.terms("tmLogoUrlAgg").field("tmLogoUrl")));
+
+
+        //平台属性聚合查询
+        searchSourceBuilder.aggregation(AggregationBuilders.nested("attrsAgg","attrs")
+                           .subAggregation(AggregationBuilders.terms("attrIdAgg").field("attrs.attrId"))
+                           .subAggregation(AggregationBuilders.terms("attrValueAgg").field("attrs.attrValue"))
+                           .subAggregation(AggregationBuilders.terms("attrNameAgg").field("attrs.attrName")));
+
+        System.out.println(searchSourceBuilder.toString());
+        //搜索语句
+        searchRequest.source(searchSourceBuilder);
+        return searchRequest;
+    }
+    //解析和封装返回结果封装方法
+    SearchResponseVo getSearchResponseVo(SearchResponse searchResponse){
+        SearchResponseVo searchResponseVo = new SearchResponseVo();
+        //解析商标属性
+        if (searchResponse != null && searchResponse.getHits().totalHits>0){
+            SearchHit[] tmHits = searchResponse.getHits().getHits();
+            List<Goods> goodsList = new ArrayList<>();
+            for (SearchHit tmHit : tmHits) {
+                //获得hit中的string数据(包含tm的信息)
+                String sourceAsString = tmHit.getSourceAsString();
+                //转化成json对象
+                Goods goods = JSON.parseObject(sourceAsString,Goods.class);
+                goodsList.add(goods);
+            }
+            searchResponseVo.setGoodsList(goodsList);
+        }
+        Aggregations aggregations = searchResponse.getAggregations();
+//        ParsedLongTerms tmIdAgg = aggregations.get("tmIdAgg");
+//        List<? extends Terms.Bucket> tmBuckets = tmIdAgg.getBuckets();
+//        if (tmBuckets !=null && tmBuckets.size()>0){
+//            List<SearchResponseTmVo> searchResponseTmVoList = new ArrayList<>();
+//            for (Terms.Bucket tmBucket : tmBuckets) {
+//                SearchResponseTmVo searchResponseTmVo = new SearchResponseTmVo();
+//                //商标id
+//                long tmId = tmBucket.getKeyAsNumber().longValue();
+//                //商标名称
+//                ParsedStringTerms tmNameAgg = tmBucket.getAggregations().get("tmNameAgg");
+//                String tmName = tmNameAgg.getBuckets().get(0).getKeyAsString();
+//                //商标logo
+//                ParsedStringTerms tmLogoUrlAgg = tmBucket.getAggregations().get("tmLogoUrlAgg");
+//                String tmLogoUrl = tmLogoUrlAgg.getBuckets().get(0).getKeyAsString();
+//                searchResponseTmVo.setTmId(tmId);
+//                searchResponseTmVo.setTmName(tmName);
+//                searchResponseTmVo.setTmLogoUrl(tmLogoUrl);
+//                searchResponseTmVoList.add(searchResponseTmVo);
+//            }
+//            searchResponseVo.setTrademarkList(searchResponseTmVoList);
+//        }
+        if(aggregations!=null){
+            //商标聚合属性解析
+            ParsedLongTerms tmIdAgg = aggregations.get("tmIdAgg");
+            List<SearchResponseTmVo> searchResponseTmVoList = tmIdAgg.getBuckets().stream().map(tmBuckets -> {
+                SearchResponseTmVo searchResponseTmVo = new SearchResponseTmVo();
+                //商标id
+                long tmId = tmBuckets.getKeyAsNumber().longValue();
+                //商标名称
+                ParsedStringTerms tmNameAgg = tmBuckets.getAggregations().get("tmNameAgg");
+                String tmName = tmNameAgg.getBuckets().get(0).getKeyAsString();
+                //商标logo
+                ParsedStringTerms tmLogoUrlAgg = tmBuckets.getAggregations().get("tmLogoUrlAgg");
+                String tmLogoUrl = tmLogoUrlAgg.getBuckets().get(0).getKeyAsString();
+                searchResponseTmVo.setTmId(tmId);
+                searchResponseTmVo.setTmName(tmName);
+                searchResponseTmVo.setTmLogoUrl(tmLogoUrl);
+                return searchResponseTmVo;
+            }).collect(Collectors.toList());
+            searchResponseVo.setTrademarkList(searchResponseTmVoList);
+
+        //平台属性聚合解析(属性id对name一对一,对value一对多)
+
+            ParsedNested attrsAgg = aggregations.get("attrsAgg");
+            ParsedStringTerms attrIdAgg = attrsAgg.getAggregations().get("attrIdAgg");
+            List<SearchResponseAttrVo> searchResponseAttrVoList = attrIdAgg.getBuckets().stream().map(attrIdBucket->{
+                SearchResponseAttrVo searchResponseAttrVo = new SearchResponseAttrVo();
+                //属性id
+                long attrId = attrIdBucket.getKeyAsNumber().longValue();
+                //属性name
+                ParsedStringTerms attrNameAgg = attrIdBucket.getAggregations().get("attrNameAgg");
+                String attrName = attrNameAgg.getBuckets().get(0).getKeyAsString();
+                //为属性id name 赋值
+                searchResponseAttrVo.setAttrId(attrId);
+                searchResponseAttrVo.setAttrName(attrName);
+                //属性value
+                ParsedStringTerms attrValueAgg = attrIdBucket.getAggregations().get("attrValueAgg");
+                List<String> attrValueList = attrValueAgg.getBuckets().stream().map(attrValueBucket->{
+                    String attrValue = attrValueBucket.getKeyAsString();
+                    return attrValue;
+                }).collect(Collectors.toList());
+                //为属性value赋值
+                searchResponseAttrVo.setAttrValueList(attrValueList);
+                return searchResponseAttrVo;
+            }).collect(Collectors.toList());
+            searchResponseVo.setAttrsList(searchResponseAttrVoList);
+        }
+
+        return searchResponseVo;
     }
 }

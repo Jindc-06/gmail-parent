@@ -1,9 +1,12 @@
 package com.atguigu.gmall.search.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.gmall.model.list.SearchParam;
+import com.atguigu.gmall.model.list.SearchResponseVo;
 import com.atguigu.gmall.search.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,5 +40,18 @@ public class SearchApiController {
     @RequestMapping("cancelSale/{skuId}")
     void cancelSale(@PathVariable("skuId")Long skuId){
         searchService.cancelSale(skuId);
+    }
+
+    //es,搜索框或商品属性搜索
+    @RequestMapping("list")
+    SearchResponseVo list(@RequestBody SearchParam searchParam){
+        SearchResponseVo searchResponseVo = searchService.list(searchParam);
+        return searchResponseVo;
+    }
+
+    //商品详情页(item)更新热度值
+    @RequestMapping("hotScore/{skuId}")
+    void hotScore(@PathVariable("skuId")Long skuId){
+        searchService.hotScore(skuId);
     }
 }

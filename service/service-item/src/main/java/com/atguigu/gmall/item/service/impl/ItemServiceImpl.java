@@ -7,6 +7,7 @@ import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
 import com.atguigu.gmall.model.product.SpuSaleAttr;
 import com.atguigu.gmall.product.client.ProductFeignClient;
+import com.atguigu.gmall.search.SearchFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,8 @@ public class ItemServiceImpl implements ItemService {
     private ProductFeignClient productFeignClient;
     @Autowired
     private ThreadPoolExecutor threadPoolExecutor;
-
+    @Autowired
+    SearchFeignClient searchFeignClient;
     @Override
     public Map<String, Object> item(Long skuId) {
         long start = System.currentTimeMillis();
@@ -106,6 +108,8 @@ public class ItemServiceImpl implements ItemService {
                                 ).join();
         long end = System.currentTimeMillis();
         System.out.println("执行时间:-->"+(end-start));
+        //调用search搜索服务器,更新热度值
+        searchFeignClient.hotScore(skuId);
         return map;
     }
 }

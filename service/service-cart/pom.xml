@@ -9,32 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-item</artifactId>
-
-    <packaging>jar</packaging>
-
-
+    <artifactId>service-cart</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.atguigu.gmall</groupId>
             <artifactId>service-product-client</artifactId>
             <version>1.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.atguigu.gmall</groupId>
-            <artifactId>service-search-client</artifactId>
-            <version>1.0</version>
-        </dependency>
     </dependencies>
-
-    <build>
-        <finalName>service-item</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
