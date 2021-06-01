@@ -1,6 +1,6 @@
 var cart = {
 
-    api_name: 'http://cart.gmall.com:8201/api/cart',
+    api_name: '/api/cart',
 
   // 添加购物车
   addToCart(skuId, skuNum) {

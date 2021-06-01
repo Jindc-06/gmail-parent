@@ -5,37 +5,34 @@
 <mapper namespace="com.atguigu.gmall.product.mapper.SkuInfoMapper">
 
     <select id="selectGoodsBySkuId" resultMap="selectGoodsBySkuIdMap">
-        SELECT
+          SELECT
             si.id,
-            si.sku_default_img AS default_img,
             si.sku_name AS title,
             si.price,
-            0 AS hot_score,
+            si.sku_default_img AS default_img,
             bt.id AS tm_id,
             bt.tm_name,
             bt.logo_url AS tm_logo_url,
-            b1.id AS category1_id,
-            b1.`NAME` AS category1_name,
-            b2.id AS category2_id,
-            b2.`NAME` AS category2_name,
-            b3.id AS category3_id,
-            b3.`name` AS category3_name
+            c3.id as category3_id,
+            c3.`name` as category3_name,
+            0 as hot_score,
+            bi.id as attr_id,
+            bi.attr_name,
+            bv.value_name as attr_value
         FROM
             sku_info si,
             sku_attr_value sav,
-            base_attr_info bai,
-            base_attr_value bav,
+            base_attr_info bi,
+            base_attr_value bv,
             base_trademark bt,
-            base_category1 b1,
-            base_category2 b2,
-            base_category3 b3
+            base_category3 c3
         WHERE
-            si.id = sav.sku_id
-            AND sav.attr_id = bai.id
-            AND bai.id = bav.attr_id
+                si.id = sav.sku_id
+            AND sav.attr_id = bi.id
+            AND bi.id = bv.attr_id
             AND si.tm_id = bt.id
-            AND b3.id = si.category3_id
-            AND si.id = #{skuId}
+            and c3.id = si.category3_id
+            and si.id = #{skuId}
     </select>
 
     <resultMap id="selectGoodsBySkuIdMap" type="com.atguigu.gmall.model.list.Goods" autoMapping="true">

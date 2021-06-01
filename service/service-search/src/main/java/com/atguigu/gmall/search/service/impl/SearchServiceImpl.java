@@ -7,13 +7,12 @@ import com.atguigu.gmall.model.product.BaseCategoryView;
 import com.atguigu.gmall.product.client.ProductFeignClient;
 import com.atguigu.gmall.search.repository.GoodsRepository;
 import com.atguigu.gmall.search.service.SearchService;
+import org.apache.lucene.search.join.ScoreMode;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.MatchQueryBuilder;
-import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.Aggregations;
@@ -21,15 +20,14 @@ import org.elasticsearch.search.aggregations.bucket.nested.ParsedNested;
 import org.elasticsearch.search.aggregations.bucket.terms.ParsedLongTerms;
 import org.elasticsearch.search.aggregations.bucket.terms.ParsedStringTerms;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -40,14 +38,15 @@ import java.util.stream.Collectors;
 public class SearchServiceImpl implements SearchService {
 
     @Autowired
-    private ProductFeignClient productFeignClient;
+    ProductFeignClient productFeignClient;
 //    @Autowired
 //    ElasticsearchRestTemplate restTemplate;
     @Autowired
     GoodsRepository goodsRepository;
     @Autowired
     RestHighLevelClient restHighLevelClient;
-
+    @Autowired
+    RedisTemplate redisTemplate;
     @Override
     public List<JSONObject> getCategoryToIndex() {
         List<BaseCategoryView> categoryViews = productFeignClient.getCategoryToIndex();
@@ -138,7 +137,15 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public void hotScore(Long skuId) {
-
+        //先将热度值存入缓存
+        Long increment = redisTemplate.opsForValue().increment("sku:" + skuId + ":hostScore", 1);
+        //热度值到10 一次传递给es
+        if (increment%10==0){
+            Optional<Goods> optionalGoods = goodsRepository.findById(skuId);
+            Goods goods = optionalGoods.get();
+            goods.setHotScore(increment);
+            goodsRepository.save(goods);
+        }
     }
 
     //es查询语句封装
@@ -155,6 +162,12 @@ public class SearchServiceImpl implements SearchService {
         //检索参数(category3Id,keyword不能同时为null)
         Long category3Id = searchParam.getCategory3Id();
         String keyword = searchParam.getKeyword();
+        //属性数组
+        String[] props = searchParam.getProps();
+        //品牌
+        String trademark = searchParam.getTrademark();
+        //热度排名
+        String order = searchParam.getOrder();
 
         //复合搜索下的dsl语句封装
         BoolQueryBuilder boolQueryBuilder = new BoolQueryBuilder();
@@ -168,7 +181,33 @@ public class SearchServiceImpl implements SearchService {
             MatchQueryBuilder matchQueryBuilder = new MatchQueryBuilder("title",keyword);
             boolQueryBuilder.must(matchQueryBuilder);
         }
-        //具体的搜索需要的条件 http
+        //属性嵌套封装
+        if(props!= null && props.length>0){
+            for (String prop : props) {
+                //23:4G:运行内存  id value name
+                String[] split = prop.split(":");
+                String attrId = split[0];
+                String attrValue = split[1];
+                String attrName = split[2];
+                BoolQueryBuilder propBoolQueryBuilder = new BoolQueryBuilder();
+                propBoolQueryBuilder.filter(new TermQueryBuilder("attrs.attrId",attrId));
+                propBoolQueryBuilder.filter(new TermQueryBuilder("attrs.attrValue",attrValue));
+                propBoolQueryBuilder.filter(new TermQueryBuilder("attrs.attrName",attrName));
+                NestedQueryBuilder nestedQueryBuilder = new NestedQueryBuilder("attrs",propBoolQueryBuilder, ScoreMode.None);
+                boolQueryBuilder.filter(nestedQueryBuilder);
+            }
+
+        }
+        //品牌封装  tmId:tmName
+        if(!StringUtils.isEmpty(trademark)){
+            String[] split = trademark.split(":");
+            String tmId = split[0];
+            String tmName =  split[1];
+            boolQueryBuilder.filter(new TermQueryBuilder("tmId",tmId));
+            boolQueryBuilder.filter(new TermQueryBuilder("tmName",tmName));
+
+        }
+        //具体的搜索需要的条件(封装到一个boolQueryBuilder)
         searchSourceBuilder.query(boolQueryBuilder);
 
         //商品商标聚合查询(通过tmId聚合查询只查询,连接tmName和tmLogoUrl作为子聚合查询)
@@ -177,11 +216,27 @@ public class SearchServiceImpl implements SearchService {
                             .subAggregation(AggregationBuilders.terms("tmLogoUrlAgg").field("tmLogoUrl")));
 
 
-        //平台属性聚合查询
-        searchSourceBuilder.aggregation(AggregationBuilders.nested("attrsAgg","attrs")
-                           .subAggregation(AggregationBuilders.terms("attrIdAgg").field("attrs.attrId"))
-                           .subAggregation(AggregationBuilders.terms("attrValueAgg").field("attrs.attrValue"))
-                           .subAggregation(AggregationBuilders.terms("attrNameAgg").field("attrs.attrName")));
+        //平台属性聚合查询(嵌套查询)
+        searchSourceBuilder.aggregation(AggregationBuilders.nested("attrsAgg","attrs")//attrId是attrs的子聚合
+                           .subAggregation(AggregationBuilders.terms("attrIdAgg").field("attrs.attrId")//属性值 属性name 是attrId的子聚合
+                               .subAggregation(AggregationBuilders.terms("attrValueAgg").field("attrs.attrValue"))
+                               .subAggregation(AggregationBuilders.terms("attrNameAgg").field("attrs.attrName"))));
+
+        //排序规则(默认热度值排序) 后台拼接   -->1:hotScore 2:price
+        if(StringUtils.isEmpty(order)){
+            //没有选择的时候 热度降序
+            searchSourceBuilder.sort("hotScore", SortOrder.DESC);
+        }else{
+            //页面选择时 两种情况
+            String[] split = order.split(":");
+            String orderNum = split[0];//1 热度值 2 price
+            String orderSort = split[1]; //升序ASC 降序DESC
+            if (orderNum.equals("1")){
+                searchSourceBuilder.sort("hotScore", orderSort.equals("desc")?SortOrder.DESC:SortOrder.ASC);
+            }else if(orderNum.equals("2")){
+                searchSourceBuilder.sort("price",  orderSort.equals("desc")?SortOrder.DESC:SortOrder.ASC);
+            }
+        }
 
         System.out.println(searchSourceBuilder.toString());
         //搜索语句
@@ -249,7 +304,7 @@ public class SearchServiceImpl implements SearchService {
         //平台属性聚合解析(属性id对name一对一,对value一对多)
 
             ParsedNested attrsAgg = aggregations.get("attrsAgg");
-            ParsedStringTerms attrIdAgg = attrsAgg.getAggregations().get("attrIdAgg");
+            ParsedLongTerms attrIdAgg = attrsAgg.getAggregations().get("attrIdAgg");
             List<SearchResponseAttrVo> searchResponseAttrVoList = attrIdAgg.getBuckets().stream().map(attrIdBucket->{
                 SearchResponseAttrVo searchResponseAttrVo = new SearchResponseAttrVo();
                 //属性id
