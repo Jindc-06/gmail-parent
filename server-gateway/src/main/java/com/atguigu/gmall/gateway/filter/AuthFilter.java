@@ -23,6 +23,7 @@ import reactor.core.publisher.Mono;
 
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,14 +40,13 @@ public class AuthFilter implements GlobalFilter {
     AntPathMatcher antPathMatcher = new AntPathMatcher();
 
     @Value("${authUrls.url}")
-    String authUrlS;
+    String authUrls;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         URI uri = request.getURI();
-        String uriString = uri.toString();
         String path = uri.getPath();
         //静态资源请求和登录
         if (uri.equals(".jpg")||uri.equals(".png")||uri.equals(".ico")||uri.equals(".js")||uri.equals(".css")||uri.equals("passport")){
@@ -56,23 +56,42 @@ public class AuthFilter implements GlobalFilter {
         if (antPathMatcher.match("/**/inner/**",path)){
             return out(response,ResultCodeEnum.SECKILL_ILLEGAL);
         }
+        //任何请求都需要登录认证,并且将userId传递到后台
+        String token = getCookieOrHeaderValue(request,"token");
+        Map<String, Object> verifyMap = new HashMap<>();
+        if (!StringUtils.isEmpty(token)){
+            //单点登录验证token
+            verifyMap = userFeignClient.verify(token);
+            String success = (String) verifyMap.get("success");
+            String userId = (String) verifyMap.get("userId");
+            if (!StringUtils.isEmpty(success) && success.equals("success")){
+                //将userId传递到后台
+                request.mutate().header("userId",userId).build();
+                exchange.mutate().request(request).build();
+            }
+        }
+        //当用户从未登录过或者没登录,将userTempId传递到后台
+        String userTempId = getCookieOrHeaderValue(request,"userTempId");
+        if (!StringUtils.isEmpty(userTempId)){
+            //将userTempId传递到后台
+            request.mutate().header("userTempId",userTempId).build();
+            exchange.mutate().request(request).build();
+        }
+
         //web请求
-        String[] split = authUrlS.split(",");
+        String[] split = authUrls.split(",");
         for (String authUrl : split) {
-            if (uriString.contains(authUrl)){
+            if (path.contains(authUrl)){
                 //如果请求在白名单中,则需要进行身份验证
-                Map<String,Object> verifyMap = userFeignClient.verify(getCookieOrHeaderValue(request,"token"));
                 String success = (String) verifyMap.get("success");
                 String userId = (String) verifyMap.get("userId");
-                if (!StringUtils.isEmpty(success)&&success.equals("success")){
-                    //验证成功放行
-                    chain.filter(exchange);
-                }else {
+                if (StringUtils.isEmpty(success)||!success.equals("success")){
+
                     //设置返回给请求的错误代号
                     response.setStatusCode(HttpStatus.SEE_OTHER);
                     //重定向到登录页面
-                    response.getHeaders().set(HttpHeaders.LOCATION,"http://passport.gmall.com/login.html?originUrl="+request.getURI());
-                    //完成设置 , 返回信息
+                    response.getHeaders().set(HttpHeaders.LOCATION,"http://passport.gmall.com/login.html?originUrl="+request.getURI().toString());
+                    // 返回信息
                     Mono<Void> voidMono = response.setComplete();
                     return voidMono;
                 }
@@ -80,7 +99,7 @@ public class AuthFilter implements GlobalFilter {
         }
         return chain.filter(exchange);
     }
-    //从cookie获取token
+    //从cookie或者header获取token
     private String getCookieOrHeaderValue(ServerHttpRequest request,String token){
         String tokenResult = "";
         MultiValueMap<String, HttpCookie> cookieMap = request.getCookies();
@@ -90,6 +109,13 @@ public class AuthFilter implements GlobalFilter {
                 for (HttpCookie cookie : cookieList) {
                     tokenResult = cookie.getValue();
                 }
+            }
+        }
+        //异步请求 ,cookie中没有token ,需要从header中获取(前端放在header)
+        if (StringUtils.isEmpty(tokenResult)){
+            List<String> tokenList = request.getHeaders().get(token);
+            if (tokenList!=null && tokenList.size()>0  ){
+                tokenResult = tokenList.get(0);
             }
         }
         return tokenResult;

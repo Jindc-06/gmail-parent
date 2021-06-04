@@ -37,7 +37,7 @@ public class SearchController {
         model.addAttribute("goodsList",goodsList);
         model.addAttribute("trademarkList",searchResponseVo.getTrademarkList());
         model.addAttribute("attrsList",searchResponseVo.getAttrsList());
-        model.addAttribute("urlParam",requestURL+"?"+getUrlParam(searchParam));//传给前台的url
+        model.addAttribute("urlParam",requestURL + "?" + getUrlParam(searchParam));//传给前台的url
         //品牌属性值
         if (!StringUtils.isEmpty(searchParam.getTrademark())){
             //品牌   2:华为  tmId:tmName
@@ -46,11 +46,11 @@ public class SearchController {
         //平台属性 SearchAttr
         if (searchParam.getProps()!=null && searchParam.getProps().length>0){
             List<SearchAttr> propsParamList = new ArrayList<>();
-            //取出属性集合(props=23:4G:运行内存)
+            //取出属性集合(props=1:0-499:价格)
             for (String prop : searchParam.getProps()) {
                 String attrId = prop.split(":")[0];
-                String attrName = prop.split(":")[1];
-                String attrValue = prop.split(":")[2];
+                String attrName = prop.split(":")[2];
+                String attrValue = prop.split(":")[1];
                 SearchAttr searchAttr = new SearchAttr();
                 searchAttr.setAttrId(Long.parseLong(attrId));
                 searchAttr.setAttrName(attrName);

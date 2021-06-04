@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -23,27 +24,30 @@ public class CartApiController {
     private CartService cartService;
     //添加购物车
     @RequestMapping("addCart/{skuId}/{skuNum}")
-    CartInfo addCart(@PathVariable("skuId") Long skuId, @PathVariable("skuNum") Long skuNum){
+    CartInfo addCart(HttpServletRequest request, @PathVariable("skuId") Long skuId, @PathVariable("skuNum") Long skuNum){
         //通过单点登录获取用户userId
-        String userId = "1";
+        String userId = request.getHeader("userId");
+        String userTempId = request.getHeader("userTempId");
         CartInfo cartInfo = cartService.addCart(skuId,skuNum,userId);
         return cartInfo;
     }
 
     //购物车列表
     @RequestMapping("cartList")
-    public Result cartList(){
+    public Result cartList(HttpServletRequest request){
         //通过单点登录获取用户userId
-        String userId = "1";
+        String userId = request.getHeader("userId");
+        String userTempId = request.getHeader("userTempId");
         List<CartInfo> cartInfoList = cartService.cartList(userId);
         return Result.ok(cartInfoList);
     }
 
     //购物车复选框
     @RequestMapping("checkCart/{skuId}/{isChecked}")
-    public Result checkCart(@PathVariable("skuId")Long skuId, @PathVariable("isChecked")Integer isChecked){
+    public Result checkCart(HttpServletRequest request,@PathVariable("skuId")Long skuId, @PathVariable("isChecked")Integer isChecked){
         //通过单点登录获取用户userId
-        String userId = "1";
+        String userId = request.getHeader("userId");
+        String userTempId = request.getHeader("userTempId");
         cartService.checkCart(skuId,isChecked,userId);
         return Result.ok();
     }
