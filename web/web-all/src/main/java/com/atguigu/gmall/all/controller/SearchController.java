@@ -49,8 +49,8 @@ public class SearchController {
             //取出属性集合(props=1:0-499:价格)
             for (String prop : searchParam.getProps()) {
                 String attrId = prop.split(":")[0];
-                String attrName = prop.split(":")[2];
                 String attrValue = prop.split(":")[1];
+                String attrName = prop.split(":")[2];
                 SearchAttr searchAttr = new SearchAttr();
                 searchAttr.setAttrId(Long.parseLong(attrId));
                 searchAttr.setAttrName(attrName);

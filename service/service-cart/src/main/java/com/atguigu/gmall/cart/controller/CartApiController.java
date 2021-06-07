@@ -51,4 +51,11 @@ public class CartApiController {
         cartService.checkCart(skuId,isChecked,userId);
         return Result.ok();
     }
+
+    //订单调用,获取购物车信息
+    @RequestMapping("getTradeOrder/{userId}")
+    List<CartInfo> getTradeOrder(@PathVariable("userId")String userId){
+        List<CartInfo> cartInfoList = cartService.getTradeOrder(userId);
+        return cartInfoList;
+    }
 }

@@ -10,6 +10,7 @@
         <module>service-client</module>
         <module>model</module>
         <module>server-gateway</module>
+        <module>service-order</module>
     </modules>
 
     <parent>

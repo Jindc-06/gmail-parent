@@ -100,4 +100,12 @@ public class CartServiceImpl implements CartService {
         //数据库同步状态()
         cartInfoMapper.updateById(cartInfo);
     }
+
+    @Override
+    public List<CartInfo> getTradeOrder(String userId) {
+        QueryWrapper<CartInfo> wrapper = new QueryWrapper<>();
+        wrapper.eq("user_id",userId);
+        List<CartInfo> cartInfoList = cartInfoMapper.selectList(wrapper);
+        return cartInfoList;
+    }
 }

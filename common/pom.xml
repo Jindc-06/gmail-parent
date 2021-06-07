@@ -13,6 +13,9 @@
         <module>service-util</module>
         <module>common-util</module>
         <module>web-util</module>
+        <module>rabbitMQ-util</module>
+        <module>rabbit-uilt</module>
+        <module>rabbit-util</module>
     </modules>
 
     <artifactId>common</artifactId>

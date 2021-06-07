@@ -14,4 +14,6 @@ public interface CartService {
     List<CartInfo> cartList(String userId);
 
     void checkCart(Long skuId, Integer isChecked, String userId);
+
+    List<CartInfo> getTradeOrder(String userId);
 }
