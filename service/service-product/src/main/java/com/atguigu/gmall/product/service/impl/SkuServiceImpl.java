@@ -11,7 +11,7 @@ import com.atguigu.gmall.product.mapper.SkuImageMapper;
 import com.atguigu.gmall.product.mapper.SkuInfoMapper;
 import com.atguigu.gmall.product.mapper.SkuSaleAttrValueMapper;
 import com.atguigu.gmall.product.service.SkuService;
-import com.atguigu.gmall.search.SearchFeignClient;
+import com.atguigu.gmall.search.client.SearchFeignClient;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

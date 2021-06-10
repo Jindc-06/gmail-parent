@@ -1,4 +1,4 @@
-package com.atguigu.gmall.search;
+package com.atguigu.gmall.search.client;
 
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.gmall.model.list.SearchParam;

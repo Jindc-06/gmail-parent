@@ -60,6 +60,7 @@
     <orderEntry type="module" module-name="service-cart-client" />
     <orderEntry type="module" module-name="service-order-client" />
     <orderEntry type="module" module-name="service-user-client" />
+    <orderEntry type="module" module-name="service-seckill-client" />
     <orderEntry type="module" module-name="web-util" />
     <orderEntry type="module" module-name="common-util" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.10" level="project" />

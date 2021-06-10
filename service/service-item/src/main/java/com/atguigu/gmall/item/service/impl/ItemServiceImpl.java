@@ -7,7 +7,7 @@ import com.atguigu.gmall.model.product.SkuImage;
 import com.atguigu.gmall.model.product.SkuInfo;
 import com.atguigu.gmall.model.product.SpuSaleAttr;
 import com.atguigu.gmall.product.client.ProductFeignClient;
-import com.atguigu.gmall.search.SearchFeignClient;
+import com.atguigu.gmall.search.client.SearchFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -13,6 +13,9 @@ public class UserRecode implements Serializable {
 	
 	private String userId;
 
+
+
+
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
 	}

@@ -5,7 +5,7 @@ import com.atguigu.gmall.model.list.Goods;
 import com.atguigu.gmall.model.list.SearchAttr;
 import com.atguigu.gmall.model.list.SearchParam;
 import com.atguigu.gmall.model.list.SearchResponseVo;
-import com.atguigu.gmall.search.SearchFeignClient;
+import com.atguigu.gmall.search.client.SearchFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
